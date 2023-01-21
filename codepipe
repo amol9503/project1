@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    stages {
+        stage ("build") {
+            steps {
+                sh '''touch file1'''
+                
+            }
+        }
+        stage ('deploy') {
+            steps {
+                sh 'echo "hello good morning everyone">file1'
+            }
+        }
+        stage ('test') {
+            steps {
+                sh 'mkdir aws'
+            }
+        }
+        stage ('create') {
+            steps {
+                sh 'cp file1 aws'
+            }
+        }
+        stage ('env1') {
+            steps {
+                sh 'echo hi my name is amol'
+            }
+        }
+    }
+}
